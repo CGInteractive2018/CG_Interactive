@@ -18,6 +18,7 @@ public class PlayerMove1_2 : MonoBehaviour {
     public float jumpPower = 10000;
     public int n;
     public static Vector3 playerForward1;
+    public float state;
 
 
     // Use this for initialization
@@ -82,7 +83,8 @@ public class PlayerMove1_2 : MonoBehaviour {
 
 
     }
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         // カメラの方向から、X-Z平面の単位ベクトルを取得
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
@@ -98,8 +100,11 @@ public class PlayerMove1_2 : MonoBehaviour {
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
-        
-
+        if (System.Math.Abs(moveForward.x) > 0.1 || System.Math.Abs(moveForward.z) > 0.1)
+        {
+            playerForward1 = moveForward;
+            state = moveForward.x;
+        }
     }
     void OnCollisionStay(Collision col)
     {

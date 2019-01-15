@@ -42,13 +42,18 @@ public class SpGenerator : MonoBehaviour {
         if (Input.GetButtonDown("ZR"))
         {
             this.dlt = 0;
-            int x = Random.Range(-10, 11);
-            Vector3 pos = new Vector3(xpos + heading.x, ypos, zpos + heading.z);
-            
+
+            //プレイヤーの向きベクトル取得
+            Vector3 vec = PlayerMove1_2.playerForward1;
+            //正規化
+            vec.Normalize();
+
+            //球の出現位置
+            Vector3 pos = new Vector3(xpos + vec.x, ypos+1, zpos + vec.z);
 
             GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
             Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-            rd.AddForce(direction.x * bulletPower, 0, direction.z * bulletPower);
+            rd.AddForce(vec.x * bulletPower, 0, vec.z * bulletPower);
         }
         
     }
