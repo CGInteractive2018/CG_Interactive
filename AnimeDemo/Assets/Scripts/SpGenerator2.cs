@@ -48,22 +48,15 @@ public class SpGenerator2 : MonoBehaviour
         {
             if (Input.GetButtonDown("ZR2"))
             {
-                //プレイヤーの向きベクトル取得
-                Vector3 vec = PlayerMove2_2.playerForward2;
-                //正規化
-                vec.Normalize();
+                Vector3 pos = new Vector3(xpos + heading.x, ypos, zpos + heading.z);
 
-                //球の出現位置
-                Vector3 pos = new Vector3(xpos + vec.x, ypos + 1, zpos + vec.z);
-
-
+                direction.Normalize();
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-                rd.AddForce(vec.x * bulletPower, 0, vec.z * bulletPower);
+                rd.AddForce(direction.x * bulletPower, 0, direction.z * bulletPower);
 
                 remain--;
             }
         }
-
     }
 }
