@@ -20,6 +20,7 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator.remain;
         //this.GetComponent<TextMesh>().text = "" + timeElapsed;
         timeElapsed += Time.deltaTime;
         
@@ -28,7 +29,7 @@ public class ScoreText : MonoBehaviour
             this.GetComponent<TextMesh>().text = "";
             timeElapsed = 0.0f;
         }
-        
+
 
         if (HitPlayer.hitflag == 1)
         {
