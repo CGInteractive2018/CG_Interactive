@@ -10,6 +10,7 @@ public class ScoreText2 : MonoBehaviour
     //それぞれのヒット回数
     int hitCount1 = 0;
     int hitCount2 = 0;
+    private int remain;
 
     // Use this for initialization
     void Start()
@@ -24,9 +25,16 @@ public class ScoreText2 : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (timeElapsed >= timeOut)
         {
-            //this.GetComponent<TextMesh>().text = "";
+            this.GetComponent<TextMesh>().text = "";
             this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator2.remain;
+            remain = SpGenerator2.remain;
             timeElapsed = 0.0f;
+        }
+
+        if (remain != SpGenerator2.remain)
+        {
+            this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator2.remain;
+            remain = SpGenerator2.remain;
         }
 
         //Player2に当たった時の処理

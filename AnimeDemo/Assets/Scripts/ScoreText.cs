@@ -10,6 +10,7 @@ public class ScoreText : MonoBehaviour
     public static int hitCount = 0;
     int hitCount1 = 0;
     int hitCount2 = 0;
+    private int remain;
 
     // Use this for initialization
     void Start()
@@ -26,16 +27,20 @@ public class ScoreText : MonoBehaviour
         
         if (timeElapsed >= timeOut)
         {
-            //this.GetComponent<TextMesh>().text = "";
+            this.GetComponent<TextMesh>().text = "";
             //残弾数の表示
             this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator.remain;
+            remain = SpGenerator.remain;
             timeElapsed = 0.0f;
         }
 
+        if (remain != SpGenerator.remain) {
+            this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator.remain;
+            remain = SpGenerator.remain;
+        }
 
         if (HitPlayer.hitflag == 1)
         {
-            //this.GetComponent<Text>().text = "Hit2!!";
             ScoreText.hitCount++;
             hitCount2++;
             this.GetComponent<TextMesh>().text = "  Hit2!!" + Environment.NewLine + "hitCount : " + hitCount2;
@@ -48,7 +53,6 @@ public class ScoreText : MonoBehaviour
         }
         else if (HitPlayer2.hitflag2 == 1)
         {
-            //this.GetComponent<Text>().text = "Hit1!!";
             ScoreText.hitCount++;
             hitCount1++;
             this.GetComponent<TextMesh>().text = "  Hit1!!" + Environment.NewLine + "hitCount : " + hitCount1;
