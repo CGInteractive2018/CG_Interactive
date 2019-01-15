@@ -12,11 +12,13 @@ public class SpGenerator2 : MonoBehaviour
     GameObject camera;
     public float high = 1f;
     public float bulletPower = 1000f;
+    public static int remain;
     // Use this for initialization
     void Start()
     {
         target = GameObject.FindWithTag("Player2");
         camera = GameObject.FindWithTag("Camera2");
+        remain = 10;
     }
 
     // Update is called once per frame
@@ -42,20 +44,25 @@ public class SpGenerator2 : MonoBehaviour
 
         this.dlt += Time.deltaTime;
         //if (Input.GetKeyDown("joystick button 7"))
-        if (Input.GetButtonDown("ZR2"))
+        if (remain != 0)
         {
-            //プレイヤーの向きベクトル取得
-            Vector3 vec = PlayerMove2_2.playerForward2;
-            //正規化
-            vec.Normalize();
+            if (Input.GetButtonDown("ZR2"))
+            {
+                //プレイヤーの向きベクトル取得
+                Vector3 vec = PlayerMove2_2.playerForward2;
+                //正規化
+                vec.Normalize();
 
-            //球の出現位置
-            Vector3 pos = new Vector3(xpos + vec.x, ypos + 1, zpos + vec.z);
+                //球の出現位置
+                Vector3 pos = new Vector3(xpos + vec.x, ypos + 1, zpos + vec.z);
 
 
-            GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
-            Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-            rd.AddForce(vec.x * bulletPower, 0, vec.z * bulletPower);
+                GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
+                Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
+                rd.AddForce(vec.x * bulletPower, 0, vec.z * bulletPower);
+
+                remain--;
+            }
         }
 
     }

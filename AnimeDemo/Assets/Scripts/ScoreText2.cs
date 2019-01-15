@@ -14,7 +14,7 @@ public class ScoreText2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.GetComponent<TextMesh>().text = "test";
+        this.GetComponent<TextMesh>().text = "";
     }
 
     // Update is called once per frame
@@ -24,7 +24,8 @@ public class ScoreText2 : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (timeElapsed >= timeOut)
         {
-            this.GetComponent<TextMesh>().text = "";
+            //this.GetComponent<TextMesh>().text = "";
+            this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator2.remain;
             timeElapsed = 0.0f;
         }
 
