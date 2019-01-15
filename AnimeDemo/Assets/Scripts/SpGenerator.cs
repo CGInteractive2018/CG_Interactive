@@ -45,9 +45,10 @@ public class SpGenerator : MonoBehaviour {
         {
             if (Input.GetButtonDown("ZR"))
             {
-                Vector3 pos = new Vector3(xpos + heading.x, ypos, zpos + heading.z);
-
+                //プレイヤーの向きの正規化
                 direction.Normalize();
+
+                Vector3 pos = new Vector3(xpos + direction.x, 1, zpos + direction.z);
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
