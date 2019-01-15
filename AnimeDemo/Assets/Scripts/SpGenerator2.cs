@@ -44,14 +44,18 @@ public class SpGenerator2 : MonoBehaviour
         //if (Input.GetKeyDown("joystick button 7"))
         if (Input.GetButtonDown("ZR2"))
         {
-            this.dlt = 0;
-            int x = Random.Range(-10, 11);
-            Vector3 pos = new Vector3(xpos + heading.x, ypos, zpos + heading.z);
+            //プレイヤーの向きベクトル取得
+            Vector3 vec = PlayerMove2_2.playerForward2;
+            //正規化
+            vec.Normalize();
+
+            //球の出現位置
+            Vector3 pos = new Vector3(xpos + vec.x, ypos + 1, zpos + vec.z);
 
 
             GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
             Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-            rd.AddForce(direction.x * bulletPower, 0, direction.z * bulletPower);
+            rd.AddForce(vec.x * bulletPower, 0, vec.z * bulletPower);
         }
 
     }

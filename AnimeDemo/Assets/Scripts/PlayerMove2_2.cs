@@ -18,6 +18,7 @@ public class PlayerMove2_2 : MonoBehaviour
     private Vector3 moveDirection;
     public float jumpPower = 10000;
     public int n;
+    public static Vector3 playerForward2;
 
 
     // Use this for initialization
@@ -97,7 +98,10 @@ public class PlayerMove2_2 : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
-
+        if (System.Math.Abs(moveForward.x) > 0.1 || System.Math.Abs(moveForward.z) > 0.1)
+        {
+            playerForward2 = moveForward;
+        }
 
     }
     void OnCollisionStay(Collision col)
