@@ -10,6 +10,9 @@ TagManager:
   - Camera2
   - Text
   - canvas
+  - FxTemporaire
+  - SecondCamera
+  - AmmoBox
   layers:
   - Default
   - TransparentFX
