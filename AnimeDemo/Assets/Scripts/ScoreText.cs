@@ -11,57 +11,74 @@ public class ScoreText : MonoBehaviour
     int hitCount1 = 0;
     int hitCount2 = 0;
     private int remain;
+    private int life;
+    public static bool alive;
 
     // Use this for initialization
     void Start()
     {
         this.GetComponent<TextMesh>().text = "test";
+        life = 5;
+        alive = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
-        //this.GetComponent<TextMesh>().text = "" + timeElapsed;
-        timeElapsed += Time.deltaTime;
-        
-        if (timeElapsed >= timeOut)
-        {
-            this.GetComponent<TextMesh>().text = "";
-            //残弾数の表示
-            this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator.remain;
-            remain = SpGenerator.remain;
-            timeElapsed = 0.0f;
+        if (ScoreText2.alive == false) {
+            this.GetComponent<TextMesh>().text = "You Are WINNER";
         }
+        else if (life > 0)
+        {
+            //this.GetComponent<TextMesh>().text = "" + timeElapsed;
+            timeElapsed += Time.deltaTime;
 
-        if (remain != SpGenerator.remain) {
-            this.GetComponent<TextMesh>().text = "remaining ammo : " + SpGenerator.remain;
-            remain = SpGenerator.remain;
-        }
+            if (timeElapsed >= timeOut)
+            {
+                //残弾数の表示
+                this.GetComponent<TextMesh>().text = "  life : " + life + Environment.NewLine + "  remaining ammo : " + SpGenerator.remain;
+                remain = SpGenerator.remain;
+                timeElapsed = 0.0f;
+            }
 
-        if (HitPlayer.hitflag == 1)
-        {
-            ScoreText.hitCount++;
-            hitCount2++;
-            this.GetComponent<TextMesh>().text = "  Hit2!!" + Environment.NewLine + "hitCount : " + hitCount2;
-            if (ScoreText.hitCount == 2)
+            if (remain != SpGenerator.remain)
             {
-                HitPlayer.hitflag = 0;
-                ScoreText.hitCount = 0;
+                this.GetComponent<TextMesh>().text = "  life : " + life + Environment.NewLine + "  remaining ammo : " + SpGenerator.remain;
+                remain = SpGenerator.remain;
             }
-            timeElapsed = 0.0f;
+
+            if (HitPlayer.hitflag == 1)
+            {
+                ScoreText.hitCount++;
+                hitCount2++;
+                this.GetComponent<TextMesh>().text = "  life : " + life + Environment.NewLine + "  remaining ammo : " + SpGenerator.remain + Environment.NewLine + "  Hit2!!" + Environment.NewLine + "hitCount : " + hitCount2;
+                if (ScoreText.hitCount == 2)
+                {
+                    HitPlayer.hitflag = 0;
+                    ScoreText.hitCount = 0;
+                }
+                timeElapsed = 0.0f;
+            }
+            else if (HitPlayer2.hitflag2 == 1)
+            {
+                //ライフを減少
+                life--;
+
+                ScoreText.hitCount++;
+                hitCount1++;
+                this.GetComponent<TextMesh>().text = "  life : " + life + Environment.NewLine + "  remaining ammo : " + SpGenerator.remain + Environment.NewLine + "  Hit1!!" + Environment.NewLine + "hitCount : " + hitCount1;
+                if (ScoreText.hitCount == 2)
+                {
+                    HitPlayer2.hitflag2 = 0;
+                    ScoreText.hitCount = 0;
+                }
+                timeElapsed = 0.0f;
+            }
         }
-        else if (HitPlayer2.hitflag2 == 1)
-        {
-            ScoreText.hitCount++;
-            hitCount1++;
-            this.GetComponent<TextMesh>().text = "  Hit1!!" + Environment.NewLine + "hitCount : " + hitCount1;
-            if (ScoreText.hitCount == 2)
-            {
-                HitPlayer2.hitflag2 = 0;
-                ScoreText.hitCount = 0;
-            }
-            timeElapsed = 0.0f;
+        //死んだとき
+        else {
+            this.GetComponent<TextMesh>().text = "You Are DEAD";
+            alive = false;
         }
     }
 }
