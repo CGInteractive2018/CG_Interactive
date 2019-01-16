@@ -65,14 +65,6 @@ public class PlayerMove1_2 : MonoBehaviour
 
         a = Mathf.Atan(varZ / varX) * 180 / Mathf.PI;
 
-        if (varX.Equals(0) == false || varZ.Equals(0) == false)
-        {
-            animator.SetBool("Running", true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }
         if (isGround && Input.GetButtonDown("B1") && n == 1)
         {
             rb.AddForce(transform.up * jumpPower);
@@ -156,6 +148,11 @@ public class PlayerMove1_2 : MonoBehaviour
             {
                 third = true;
             }
+        }
+
+        if(ScoreText.alive == false)
+        {
+            animator.SetBool("Dead", true);
         }
 
 

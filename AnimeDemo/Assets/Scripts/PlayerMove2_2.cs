@@ -59,20 +59,12 @@ public class PlayerMove2_2 : MonoBehaviour
             varZ = -Input.GetAxis("L_YAxis_2_PS");
         }
 
-        Debug.Log(varX);
-        Debug.Log(varZ);
+        Debug.Log(ScoreText2.alive);
 
 
         a = Mathf.Atan(varZ / varX) * 180 / Mathf.PI;
 
-        if (varX.Equals(0) == false || varZ.Equals(0) == false)
-        {
-            animator.SetBool("Running", true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }
+
         if (isGround && Input.GetButtonDown("B2") && n == 1)
         {
             rb.AddForce(transform.up * jumpPower);
@@ -85,7 +77,6 @@ public class PlayerMove2_2 : MonoBehaviour
             animator.SetBool("is_jumping", true);
         }
 
-        Debug.Log(Mathf.Atan(varZ / varX));
         //animatorの設定
         //前方
         if (varX.Equals(0) == true && varZ > 0)
@@ -157,6 +148,11 @@ public class PlayerMove2_2 : MonoBehaviour
             {
                 third = true;
             }
+        }
+        
+        if (ScoreText2.alive == false)
+        {
+            animator.SetBool("Dead", true);
         }
 
 

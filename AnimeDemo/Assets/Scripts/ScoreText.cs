@@ -25,6 +25,7 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log(ScoreText2.alive);
         if (ScoreText2.alive == false) {
             this.GetComponent<TextMesh>().text = "You Are WINNER";
         }
