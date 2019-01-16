@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpGenerator : MonoBehaviour {
 
     public GameObject Sphere;
+    public GameObject effect;
     public float spn = 1.0f;
     float dlt = 0;
     GameObject target;
@@ -57,6 +58,9 @@ public class SpGenerator : MonoBehaviour {
                 Vector3 pos = new Vector3(xpos + direction.x, 1.1f, zpos + direction.z);
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
+                GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
+                MazzuleFlashe.transform.rotation = target.transform.rotation;
+                MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                 rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
 
