@@ -36,6 +36,7 @@ public class SpGenerator2 : MonoBehaviour
 
         //球を飛ばす方向ベクトルの取得
         var heading = target.transform.position - camera.transform.position;
+        heading.y = (target.transform.position.y + 1) - camera.transform.position.y;
 
         //方向ベクトルの正規化        
         var distance = heading.magnitude;
@@ -51,11 +52,11 @@ public class SpGenerator2 : MonoBehaviour
                 //正規化
                 direction.Normalize();
 
-                Vector3 pos = new Vector3(xpos + direction.x, 1, zpos + direction.z);
+                Vector3 pos = new Vector3(xpos + direction.x, 1.1f, zpos + direction.z);
                 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-                rd.AddForce(direction.x * bulletPower, 0, direction.z * bulletPower);
+                rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
 
                 remain--;
             }
