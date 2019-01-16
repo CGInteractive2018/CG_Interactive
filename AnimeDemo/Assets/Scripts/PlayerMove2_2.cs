@@ -149,20 +149,11 @@ public class PlayerMove2_2 : MonoBehaviour
                 third = true;
             }
         }
-        
+        Debug.Log(ScoreText2.alive);
         if (ScoreText2.alive == false)
         {
             animator.SetBool("Dead", true);
         }
-
-
-
-
-
-
-
-
-
     }
     void FixedUpdate()
     {
