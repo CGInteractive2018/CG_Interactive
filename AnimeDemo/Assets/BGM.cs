@@ -5,17 +5,23 @@ public class BGM : MonoBehaviour
 {
     public AudioClip audioClip1;
     private AudioSource audioSource;
+    private bool gameOver = false;
 
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = audioClip1;
+        //audioSource.Play();
     }
 
     private void Update()
     {
-        if (ScoreText.alive == false || ScoreText2.alive == false) {
-            audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.clip = audioClip1;
+        if( (ScoreText.alive == false || ScoreText2.alive == false) && (gameOver == false) ){
+            //audioSource = gameObject.GetComponent<AudioSource>();
+            //audioSource.clip = audioClip1;
             audioSource.Play();
+            Debug.Log("hoge");
+            gameOver = true;
         }
     }
 }
