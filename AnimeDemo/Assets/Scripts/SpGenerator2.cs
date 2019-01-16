@@ -13,6 +13,10 @@ public class SpGenerator2 : MonoBehaviour
     public float high = 1f;
     public float bulletPower = 1000f;
     public static int remain;
+    //銃撃音
+    public AudioClip audioClip1;
+    private AudioSource audioSource;
+
     // Use this for initialization
     void Start()
     {
@@ -57,6 +61,11 @@ public class SpGenerator2 : MonoBehaviour
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                 rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
+
+                //銃撃音の再生
+                audioSource = gameObject.GetComponent<AudioSource>();
+                audioSource.clip = audioClip1;
+                audioSource.Play();
 
                 remain--;
             }
