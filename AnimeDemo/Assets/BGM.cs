@@ -8,9 +8,14 @@ public class BGM : MonoBehaviour
 
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip1;
-        audioSource.Play();
     }
 
+    private void Update()
+    {
+        if (ScoreText.alive == false || ScoreText2.alive == false) {
+            audioSource = gameObject.GetComponent<AudioSource>();
+            audioSource.clip = audioClip1;
+            audioSource.Play();
+        }
+    }
 }
