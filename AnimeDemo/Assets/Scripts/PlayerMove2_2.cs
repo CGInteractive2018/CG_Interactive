@@ -59,7 +59,6 @@ public class PlayerMove2_2 : MonoBehaviour
             varZ = -Input.GetAxis("L_YAxis_2_PS");
         }
 
-        Debug.Log(ScoreText2.alive);
 
 
         a = Mathf.Atan(varZ / varX) * 180 / Mathf.PI;
@@ -143,13 +142,14 @@ public class PlayerMove2_2 : MonoBehaviour
             if (third == true)
             {
                 third = false;
+                animator.SetBool("Aim", true);
             }
             else
             {
                 third = true;
+                animator.SetBool("Aim", false);
             }
         }
-        Debug.Log(ScoreText2.alive);
         if (ScoreText2.alive == false)
         {
             animator.SetBool("Dead", true);

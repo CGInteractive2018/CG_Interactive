@@ -14225,6 +14225,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 19800006}
   - component: {fileID: 19900006}
+  - component: {fileID: 1657212355784871336}
   m_Layer: 0
   m_Name: WFXMR_MF 4P RIFLE1
   m_TagString: Untagged
@@ -14328,7 +14329,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1828896366
+  randomSeed: 0
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18958,6 +18959,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1657212355784871336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30aff910c6100e64aaee2b51d3c90e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeOut: 1
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0

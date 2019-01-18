@@ -6,6 +6,7 @@ public class SpGenerator2 : MonoBehaviour
 {
 
     public GameObject Sphere;
+    public GameObject effect;
     public float spn = 1.0f;
     float dlt = 0;
     GameObject target;
@@ -22,7 +23,7 @@ public class SpGenerator2 : MonoBehaviour
     {
         target = GameObject.FindWithTag("Player2");
         camera = GameObject.FindWithTag("Camera2");
-        remain = 10;
+        remain = 1000;
     }
 
     // Update is called once per frame
@@ -59,6 +60,9 @@ public class SpGenerator2 : MonoBehaviour
                 Vector3 pos = new Vector3(xpos + direction.x, 1.1f, zpos + direction.z);
                 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
+                GameObject MazzuleFlash = Instantiate(effect, pos, Quaternion.identity);
+                MazzuleFlash.transform.rotation = target.transform.rotation;
+                MazzuleFlash.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                 rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
 
