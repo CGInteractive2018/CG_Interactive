@@ -41,7 +41,7 @@ public class SpGenerator2 : MonoBehaviour
 
         //球を飛ばす方向ベクトルの取得
         var heading = target.transform.position - camera.transform.position;
-        heading.y = (target.transform.position.y + 1) - camera.transform.position.y;
+        heading.y = (target.transform.position.y + 3) - camera.transform.position.y;
 
         //方向ベクトルの正規化        
         var distance = heading.magnitude;

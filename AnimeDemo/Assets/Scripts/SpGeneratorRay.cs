@@ -42,7 +42,7 @@ public class SpGeneratorRay : MonoBehaviour
 
         //球を飛ばす方向ベクトルの取得
         var heading = target.transform.position - camera.transform.position;
-        heading.y = (target.transform.position.y + 1) - camera.transform.position.y;
+        heading.y = (target.transform.position.y + 3) - camera.transform.position.y;
 
         //方向ベクトルの正規化        
         var distance = heading.magnitude;
@@ -57,7 +57,7 @@ public class SpGeneratorRay : MonoBehaviour
                 //プレイヤーの向きの正規化
                 direction.Normalize();
 
-                Vector3 pos = new Vector3(xpos + direction.x, 1.1f, zpos + direction.z);
+                Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
                 var point = ray.point - pos;
                 Debug.Log(point);
 

@@ -47,7 +47,7 @@ public class SpGenerator : MonoBehaviour {
 
         //球を飛ばす方向ベクトルの取得
         var heading = target.transform.position - camera.transform.position;
-        heading.y = (target.transform.position.y + 1) - camera.transform.position.y;
+        heading.y = (target.transform.position.y + 3) - camera.transform.position.y;
 
         //方向ベクトルの正規化        
         var distance = heading.magnitude;
@@ -63,6 +63,8 @@ public class SpGenerator : MonoBehaviour {
                 direction.Normalize();
 
                 Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
+                var point = ray.point - pos;
+                Debug.Log(point);
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
@@ -70,7 +72,8 @@ public class SpGenerator : MonoBehaviour {
                 MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                 //rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
-                rd.AddForce(Camforward * bulletPower);
+                //rd.AddForce(Camforward * bulletPower);
+                rd.AddForce(point.x * bulletPower, point.y * bulletPower, point.z * bulletPower);
 
                 //銃撃音の再生
                 audioSource = gameObject.GetComponent<AudioSource>();
