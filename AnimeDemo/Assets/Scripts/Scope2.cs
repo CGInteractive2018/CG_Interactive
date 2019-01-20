@@ -14,6 +14,8 @@ public class Scope2 : MonoBehaviour
     public GameObject player;
     public GameObject thirdPersonCamera;
     public float DistanceToPlayerM = 2f;    // カメラとプレイヤーとの距離[m]
+    [SerializeField]
+    public Transform born;
 
     // Use this for initialization
     void Start()
@@ -62,7 +64,6 @@ public class Scope2 : MonoBehaviour
         var lookAt = target.position + Vector3.up * HeightM;
         player.transform.RotateAround(lookAt, Vector3.up, rotX);
         transform.RotateAround(lookAt, transform.right, rotY);
-
         //回転
         //thirdPersonCamera.transform.RotateAround(lookAt, Vector3.up, rotX);
         // カメラがプレイヤーの真上や真下にあるときにそれ以上回転させないようにする

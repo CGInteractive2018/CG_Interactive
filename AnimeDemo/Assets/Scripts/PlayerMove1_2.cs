@@ -143,10 +143,12 @@ public class PlayerMove1_2 : MonoBehaviour
             if (third == true)
             {
                 third = false;
+                animator.SetBool("Aim", true);
             }
             else
             {
                 third = true;
+                animator.SetBool("Aim", false);
             }
         }
 

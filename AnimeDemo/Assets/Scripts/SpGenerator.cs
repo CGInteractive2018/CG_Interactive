@@ -13,6 +13,9 @@ public class SpGenerator : MonoBehaviour {
     public float high = 1f;
     public float bulletPower = 1000f;
     public static int remain;
+
+    private Transform CamPos;
+    private Vector3 Camforward;
     //銃撃音
     public AudioClip audioClip1;
     private AudioSource audioSource;
@@ -28,6 +31,10 @@ public class SpGenerator : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //カメラの向き取得
+        CamPos = Camera.main.transform;
+        Camforward = Vector3.Scale(CamPos.forward, new Vector3(1, 0, 1)).normalized;
+
         float xpos = target.transform.position.x;
         float ypos = target.transform.position.y;
         float zpos = target.transform.position.z;
@@ -55,14 +62,15 @@ public class SpGenerator : MonoBehaviour {
                 //プレイヤーの向きの正規化
                 direction.Normalize();
 
-                Vector3 pos = new Vector3(xpos + direction.x, 1.1f, zpos + direction.z);
+                Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
                 MazzuleFlashe.transform.rotation = target.transform.rotation;
                 MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-                rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
+                //rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
+                rd.AddForce(Camforward * bulletPower);
 
                 //銃撃音の再生
                 audioSource = gameObject.GetComponent<AudioSource>();
