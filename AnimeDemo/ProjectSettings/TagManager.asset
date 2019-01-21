@@ -15,6 +15,7 @@ TagManager:
   - AmmoBox
   - subCamera
   - subCamera2
+  - Sammo
   layers:
   - Default
   - TransparentFX

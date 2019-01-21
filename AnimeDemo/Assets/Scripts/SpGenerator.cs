@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SpGenerator : MonoBehaviour {
 
+    private GameObject bullet;
     public GameObject Sphere;
+    public GameObject Special_Bullet;
     public GameObject effect;
     public float spn = 1.0f;
     float dlt = 0;
@@ -13,6 +15,7 @@ public class SpGenerator : MonoBehaviour {
     public float high = 1f;
     public float bulletPower = 1000f;
     public static int remain;
+    public static int special_remain;
 
     private Transform CamPos;
     private Vector3 Camforward;
@@ -55,7 +58,7 @@ public class SpGenerator : MonoBehaviour {
 
         this.dlt += Time.deltaTime;
         //if (Input.GetKeyDown("joystick button 7"))
-        if (remain != 0)
+        if (remain != 0 || special_remain != 0)
         {
             if (Input.GetButtonDown("ZR"))
             {
@@ -64,15 +67,25 @@ public class SpGenerator : MonoBehaviour {
 
                 Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
                 var point = ray.point - pos;
-
-                GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
+                //スペシャル状態の時
+                if (SpecialFlag.special_flag1 == true)
+                {
+                    GameObject bullet = Instantiate(Special_Bullet, pos, Quaternion.identity);
+                    Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
+                    rd.AddForce(Camforward * bulletPower);
+                    Debug.Log("now special");
+                }
+                //そうでないとき
+                else
+                {
+                    GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
+                    Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
+                    rd.AddForce(Camforward * bulletPower);
+                    Debug.Log("now normal");
+                }
                 GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
                 MazzuleFlashe.transform.rotation = target.transform.rotation;
                 MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
-                Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
-                //rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
-                rd.AddForce(Camforward * bulletPower);
-                //rd.AddForce(point.x * bulletPower, point.y * bulletPower, point.z * bulletPower);
 
                 //銃撃音の再生
                 audioSource = gameObject.GetComponent<AudioSource>();

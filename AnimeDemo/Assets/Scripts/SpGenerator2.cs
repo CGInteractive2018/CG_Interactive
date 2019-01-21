@@ -14,6 +14,7 @@ public class SpGenerator2 : MonoBehaviour
     public float high = 1f;
     public float bulletPower = 1000f;
     public static int remain;
+    public static int special_remain;
 
     //カメラの向き取得
     private Transform CamPos;
