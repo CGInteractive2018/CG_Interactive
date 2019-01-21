@@ -11,6 +11,7 @@ public class ScoreText : MonoBehaviour
     int hitCount1 = 0;
     int hitCount2 = 0;
     private int remain;
+    private int special_remain;
     private int life;
     public static bool alive;
     Slider slider;
@@ -40,22 +41,31 @@ public class ScoreText : MonoBehaviour
             if (timeElapsed >= timeOut)
             {
                 //残弾数の表示
-                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain;
+                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain + "  Special Ammo : " + SpGenerator.special_remain;
                 remain = SpGenerator.remain;
+                special_remain = SpGenerator.special_remain;
                 timeElapsed = 0.0f;
             }
 
             if (remain != SpGenerator.remain)
             {
-                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain;
+                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain + "  Special Ammo : " + SpGenerator.special_remain;
                 remain = SpGenerator.remain;
+                special_remain = SpGenerator.special_remain;
+            }
+
+            if (special_remain != SpGenerator.special_remain)
+            {
+                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain + "  Special Ammo : " + SpGenerator.special_remain;
+                remain = SpGenerator.remain;
+                special_remain = SpGenerator.special_remain;
             }
 
             if (HitPlayer.hitflag == 1)
             {
                 ScoreText.hitCount++;
                 hitCount2++;
-                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain + Environment.NewLine + "  Hit2!!" + Environment.NewLine + "hitCount : " + hitCount2;
+                this.GetComponent<TextMesh>().text = "  life : " + life + "  Ammo : " + SpGenerator.remain + "  Special Ammo : " + SpGenerator.special_remain + Environment.NewLine + "  Hit2!!" + Environment.NewLine + "hitCount : " + hitCount2;
                 if (ScoreText.hitCount == 2)
                 {
                     HitPlayer.hitflag = 0;
@@ -71,7 +81,7 @@ public class ScoreText : MonoBehaviour
 
                 ScoreText.hitCount++;
                 hitCount1++;
-                this.GetComponent<TextMesh>().text = "  life : " + life +  "  Ammo : " + SpGenerator.remain + Environment.NewLine + "  Hit1!!" + Environment.NewLine + "hitCount : " + hitCount1;
+                this.GetComponent<TextMesh>().text = "  life : " + life +  "  Ammo : " + SpGenerator.remain + "  Special Ammo : " + SpGenerator.special_remain + Environment.NewLine + "  Hit1!!" + Environment.NewLine + "hitCount : " + hitCount1;
                 if (ScoreText.hitCount == 2)
                 {
                     HitPlayer2.hitflag2 = 0;

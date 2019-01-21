@@ -5,17 +5,20 @@ using UnityEngine;
 public class SpecialFlag : MonoBehaviour
 {
     public static bool special_flag1;
+    public static bool special_flag2;
 
     // Start is called before the first frame update
     void Start()
     {
         special_flag1 = false;
+        special_flag2 = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 3")) {
+        if (Input.GetButtonDown("X1")) {
+            Debug.Log("Push X");
             if (special_flag1 == false)
             {
                 special_flag1 = true;
@@ -23,6 +26,18 @@ public class SpecialFlag : MonoBehaviour
             else
             {
                 special_flag1 = false;
+            }
+        }
+        if (Input.GetButtonDown("X2"))
+        {
+            Debug.Log("Push X");
+            if (special_flag2 == false)
+            {
+                special_flag2 = true;
+            }
+            else
+            {
+                special_flag2 = false;
             }
         }
     }

@@ -28,6 +28,7 @@ public class SpGenerator : MonoBehaviour {
     void Start () {
         target = GameObject.FindWithTag("Player");
         camera = GameObject.FindWithTag("MainCamera");
+        special_remain = 10;
         remain = 10;
     }
 
@@ -58,7 +59,7 @@ public class SpGenerator : MonoBehaviour {
 
         this.dlt += Time.deltaTime;
         //if (Input.GetKeyDown("joystick button 7"))
-        if (remain != 0 || special_remain != 0)
+        if (remain >= 0 && special_remain >= 0)
         {
             if (Input.GetButtonDown("ZR"))
             {
@@ -68,31 +69,39 @@ public class SpGenerator : MonoBehaviour {
                 Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
                 var point = ray.point - pos;
                 //スペシャル状態の時
-                if (SpecialFlag.special_flag1 == true)
+                if (SpecialFlag.special_flag1 == true && special_remain >= 1)
                 {
                     GameObject bullet = Instantiate(Special_Bullet, pos, Quaternion.identity);
                     Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                     rd.AddForce(Camforward * bulletPower);
+                    special_remain--;
                     Debug.Log("now special");
+                    GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
+                    MazzuleFlashe.transform.rotation = target.transform.rotation;
+                    MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
+
+                    //銃撃音の再生
+                    audioSource = gameObject.GetComponent<AudioSource>();
+                    audioSource.clip = audioClip1;
+                    audioSource.Play();
                 }
                 //そうでないとき
-                else
+                else if(SpecialFlag.special_flag1 == false && remain >= 1)
                 {
                     GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                     Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                     rd.AddForce(Camforward * bulletPower);
+                    remain--;
                     Debug.Log("now normal");
+                    GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
+                    MazzuleFlashe.transform.rotation = target.transform.rotation;
+                    MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
+
+                    //銃撃音の再生
+                    audioSource = gameObject.GetComponent<AudioSource>();
+                    audioSource.clip = audioClip1;
+                    audioSource.Play();
                 }
-                GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
-                MazzuleFlashe.transform.rotation = target.transform.rotation;
-                MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
-
-                //銃撃音の再生
-                audioSource = gameObject.GetComponent<AudioSource>();
-                audioSource.clip = audioClip1;
-                audioSource.Play();
-
-                remain--;
             }
         }
     }
