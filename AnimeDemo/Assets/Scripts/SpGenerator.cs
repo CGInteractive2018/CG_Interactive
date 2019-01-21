@@ -33,7 +33,7 @@ public class SpGenerator : MonoBehaviour {
     {
         //カメラの向き取得
         CamPos = Camera.main.transform;
-        Camforward = Vector3.Scale(CamPos.forward, new Vector3(1, 0, 1)).normalized;
+        Camforward = Vector3.Scale(CamPos.forward, new Vector3(1, 1, 1)).normalized;
 
         float xpos = target.transform.position.x;
         float ypos = target.transform.position.y;
@@ -71,8 +71,8 @@ public class SpGenerator : MonoBehaviour {
                 MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
                 Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                 //rd.AddForce(direction.x * bulletPower, direction.y * bulletPower, direction.z * bulletPower);
-                //rd.AddForce(Camforward * bulletPower);
-                rd.AddForce(point.x * bulletPower, point.y * bulletPower, point.z * bulletPower);
+                rd.AddForce(Camforward * bulletPower);
+                //rd.AddForce(point.x * bulletPower, point.y * bulletPower, point.z * bulletPower);
 
                 //銃撃音の再生
                 audioSource = gameObject.GetComponent<AudioSource>();
