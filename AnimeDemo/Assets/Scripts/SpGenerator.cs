@@ -32,8 +32,9 @@ public class SpGenerator : MonoBehaviour {
     void Update()
     {
         //カメラの向き取得
-        CamPos = Camera.main.transform;
+        CamPos = camera.transform;
         Camforward = Vector3.Scale(CamPos.forward, new Vector3(1, 1, 1)).normalized;
+        
 
         float xpos = target.transform.position.x;
         float ypos = target.transform.position.y;
@@ -64,7 +65,7 @@ public class SpGenerator : MonoBehaviour {
 
                 Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
                 var point = ray.point - pos;
-                Debug.Log(point);
+                Debug.Log("Push ZR");
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
