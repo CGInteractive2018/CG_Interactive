@@ -64,7 +64,6 @@ public class SpGenerator : MonoBehaviour {
 
                 Vector3 pos = new Vector3(xpos + direction.x, ypos + direction.y, zpos + direction.z);
                 var point = ray.point - pos;
-                Debug.Log(point);
 
                 GameObject bullet = Instantiate(Sphere, pos, Quaternion.identity);
                 GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);

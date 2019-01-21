@@ -46,6 +46,12 @@ public class PlayerMove2_2 : MonoBehaviour
         {
             n = 2;
         }
+        else
+        {
+
+        }
+        
+
 
 
         if (n == 1)
@@ -202,7 +208,7 @@ public class PlayerMove2_2 : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
             isGround = true;
-            animator.SetBool("is_jumping", false);
+            animator.SetBool("is_jumping", true);
             animator.SetBool("isGround", true);
         }
     }
@@ -214,5 +220,6 @@ public class PlayerMove2_2 : MonoBehaviour
             animator.SetBool("isGround", false);
         }
     }
+    
 
 }
