@@ -23,7 +23,7 @@ public class ScoreText : MonoBehaviour
         life = 5;
         alive = true;
         slider = GameObject.Find("Slider").GetComponent<Slider>();
-        animator = GameObject.FindWithTag("Player2").GetComponent<Animator>();
+        animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
