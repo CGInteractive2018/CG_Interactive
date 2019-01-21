@@ -13,6 +13,8 @@ TagManager:
   - FxTemporaire
   - SecondCamera
   - AmmoBox
+  - subCamera
+  - subCamera2
   layers:
   - Default
   - TransparentFX

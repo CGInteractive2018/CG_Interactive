@@ -34,7 +34,7 @@ public class SpGenerator2 : MonoBehaviour
     void Update()
     {
         //カメラの向き取得
-        CamPos = Camera.main.transform;
+        CamPos = camera.transform;
         Camforward = Vector3.Scale(CamPos.forward, new Vector3(1, 1, 1)).normalized;
 
         float xpos = target.transform.position.x;
