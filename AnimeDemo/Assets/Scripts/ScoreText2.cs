@@ -14,6 +14,7 @@ public class ScoreText2 : MonoBehaviour
     private int life;
     public static bool alive;
     Slider slider;
+    private Animator animator;
 
     // Use this for initialization
     void Start()
@@ -22,6 +23,7 @@ public class ScoreText2 : MonoBehaviour
         life = 5;
         alive = true;
         slider = GameObject.Find("Slider2").GetComponent<Slider>();
+        animator = GameObject.FindWithTag("Player2").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -91,6 +93,7 @@ public class ScoreText2 : MonoBehaviour
         {
             this.GetComponent<TextMesh>().text = "You Are DEAD";
             alive = false;
+            animator.SetBool("Dead", true);
         }
     }
 }
