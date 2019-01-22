@@ -23,12 +23,9 @@ public class SpecialFlag : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("X1")) {
-<<<<<<< HEAD
-=======
             weapon1_1.SetActive(!weapon1_1.activeInHierarchy);
             weapon1_2.SetActive(!weapon1_2.activeInHierarchy);
             Debug.Log("Push X");
->>>>>>> origin/master
             if (special_flag1 == false)
             {
                 special_flag1 = true;
@@ -40,12 +37,9 @@ public class SpecialFlag : MonoBehaviour
         }
         if (Input.GetButtonDown("X2"))
         {
-<<<<<<< HEAD
-=======
             weapon2_1.SetActive(!weapon2_1.activeInHierarchy);
             weapon2_2.SetActive(!weapon2_2.activeInHierarchy);
             Debug.Log("Push X");
->>>>>>> origin/master
             if (special_flag2 == false)
             {
                 special_flag2 = true;
