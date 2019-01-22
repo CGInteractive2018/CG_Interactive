@@ -75,7 +75,6 @@ public class SpGenerator : MonoBehaviour {
                     Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                     rd.AddForce(Camforward * bulletPower);
                     special_remain--;
-                    Debug.Log("now special");
                     GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
                     MazzuleFlashe.transform.rotation = target.transform.rotation;
                     MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));
@@ -92,7 +91,6 @@ public class SpGenerator : MonoBehaviour {
                     Rigidbody rd = bullet.transform.GetComponent<Rigidbody>();
                     rd.AddForce(Camforward * bulletPower);
                     remain--;
-                    Debug.Log("now normal");
                     GameObject MazzuleFlashe = Instantiate(effect, pos, Quaternion.identity);
                     MazzuleFlashe.transform.rotation = target.transform.rotation;
                     MazzuleFlashe.transform.Rotate(new Vector3(0.0f, 90f, 0.0f));

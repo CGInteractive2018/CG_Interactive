@@ -16,6 +16,8 @@ TagManager:
   - subCamera
   - subCamera2
   - Sammo
+  - TEXTforHUD
+  - TEXTforHUD2
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - UI2
   - 
   - 
   - 

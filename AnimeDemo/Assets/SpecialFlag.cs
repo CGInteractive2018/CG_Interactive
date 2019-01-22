@@ -18,7 +18,6 @@ public class SpecialFlag : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("X1")) {
-            Debug.Log("Push X");
             if (special_flag1 == false)
             {
                 special_flag1 = true;
@@ -30,7 +29,6 @@ public class SpecialFlag : MonoBehaviour
         }
         if (Input.GetButtonDown("X2"))
         {
-            Debug.Log("Push X");
             if (special_flag2 == false)
             {
                 special_flag2 = true;
