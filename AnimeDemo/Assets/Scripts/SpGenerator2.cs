@@ -29,8 +29,8 @@ public class SpGenerator2 : MonoBehaviour
     {
         target = GameObject.FindWithTag("Player2");
         camera = GameObject.FindWithTag("Camera2");
-        special_remain = 10;
-        remain = 1000;
+        special_remain = 0;
+        remain = 10;
     }
 
     // Update is called once per frame

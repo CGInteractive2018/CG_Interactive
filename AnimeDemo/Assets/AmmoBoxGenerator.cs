@@ -9,7 +9,7 @@ public class AmmoBoxGenerator : MonoBehaviour
     public GameObject effect;
     public float spn = 1.0f;
     private float timeElapsed;
-    private float timeOut = 10;
+    public float timeOut = 10;
 
     // Use this for initialization
     void Start()
