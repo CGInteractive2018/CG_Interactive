@@ -16,6 +16,15 @@ public class ScoreText2 : MonoBehaviour
     public static bool alive;
     Slider slider;
     private Animator animator;
+    private Animator animator2;
+    private GameObject Player;
+    private GameObject Player2;
+    private GameObject Sp1;
+    private GameObject Sp2;
+    private GameObject Camera1;
+    private GameObject Camera2;
+    private GameObject Scope1;
+    private GameObject Scope2;
 
     // Use this for initialization
     void Start()
@@ -24,7 +33,16 @@ public class ScoreText2 : MonoBehaviour
         life = 5;
         alive = true;
         slider = GameObject.Find("Slider2").GetComponent<Slider>();
-        animator = GameObject.FindWithTag("Player2").GetComponent<Animator>();
+        animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        animator2 = GameObject.FindWithTag("Player2").GetComponent<Animator>();
+        Player = GameObject.FindWithTag("Player");
+        Player2 = GameObject.FindWithTag("Player2");
+        Sp1 = GameObject.Find("SpGenerator");
+        Sp2 = GameObject.Find("SpGenerator2");
+        Camera1 = GameObject.Find("Main Camera");
+        Camera2 = GameObject.Find("Camera2");
+        Scope1 = GameObject.Find("ADS Camera1");
+        Scope2 = GameObject.Find("ADS Camera2");
     }
 
     // Update is called once per frame
@@ -104,7 +122,16 @@ public class ScoreText2 : MonoBehaviour
         {
             this.GetComponent<TextMesh>().text = "You Are DEAD";
             alive = false;
-            animator.SetBool("Dead", true);
+            animator.SetBool("Win", true);
+            animator2.SetBool("Dead", true);
+            Player.GetComponent<PlayerMove1_2>().enabled = false;
+            Player2.GetComponent<PlayerMove2_2>().enabled = false;
+            Sp1.GetComponent<SpGenerator>().enabled = false;
+            Sp2.GetComponent<SpGenerator2>().enabled = false;
+            Camera1.GetComponent<camera>().enabled = false;
+            Camera2.GetComponent<camera2>().enabled = false;
+            Camera1.GetComponent<Scope>().enabled = false;
+            Camera2.GetComponent<Scope2>().enabled = false;
         }
     }
 }
