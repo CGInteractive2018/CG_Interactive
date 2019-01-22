@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11957,7 +11957,7 @@ GameObject:
   - component: {fileID: 353299076}
   - component: {fileID: 353299075}
   - component: {fileID: 353299074}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12502,7 +12502,7 @@ GameObject:
   - component: {fileID: 360743079}
   - component: {fileID: 360743078}
   - component: {fileID: 360743077}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19946,7 +19946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622740846}
   - component: {fileID: 622740847}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22397,7 +22397,7 @@ GameObject:
   - component: {fileID: 688184045}
   - component: {fileID: 688184047}
   - component: {fileID: 688184046}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27665,7 +27665,7 @@ GameObject:
   - component: {fileID: 843869337}
   - component: {fileID: 843869336}
   - component: {fileID: 843869335}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31870,7 +31870,7 @@ GameObject:
   - component: {fileID: 968151673}
   - component: {fileID: 968151672}
   - component: {fileID: 968151671}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48675,7 +48675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029893593}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55792,7 +55792,7 @@ GameObject:
   - component: {fileID: 1257946298}
   - component: {fileID: 1257946300}
   - component: {fileID: 1257946299}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63987,7 +63987,7 @@ GameObject:
   - component: {fileID: 1518850051}
   - component: {fileID: 1518850053}
   - component: {fileID: 1518850052}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68073,7 +68073,7 @@ GameObject:
   - component: {fileID: 1656046805}
   - component: {fileID: 1656046807}
   - component: {fileID: 1656046806}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69188,7 +69188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707309620}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92373,7 +92373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977228279}
   - component: {fileID: 1977228280}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93265,7 +93265,7 @@ GameObject:
   - component: {fileID: 1998717635}
   - component: {fileID: 1998717637}
   - component: {fileID: 1998717636}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94722,7 +94722,7 @@ GameObject:
   - component: {fileID: 2064031847}
   - component: {fileID: 2064031849}
   - component: {fileID: 2064031848}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
