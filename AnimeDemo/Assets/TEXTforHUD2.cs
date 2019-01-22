@@ -10,14 +10,14 @@ public class TEXTforHUD2 : MonoBehaviour
     private Vector3 Camforward;
     private float debug = 0.5f;
     private float debug2 = 0.35f;
-    private float debug3;
+    public float debug3;
     // Start is called before the first frame update
     void Start()
     {
         text = GameObject.FindWithTag("TEXTforHUD2");
         debug = 0.5f;
         debug2 = 0.35f;
-        debug3 = 0.2f;
+        //debug3 = 0.2f;
     }
 
     // Update is called once per frame

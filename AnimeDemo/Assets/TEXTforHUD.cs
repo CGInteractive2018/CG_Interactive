@@ -17,7 +17,7 @@ public class TEXTforHUD : MonoBehaviour
         text = GameObject.FindWithTag("TEXTforHUD");
         debug = 0.5f;
         debug2 = 0.35f;
-        debug3 = 0.2f;
+        debug3 = 0.1f;
     }
 
     // Update is called once per frame
