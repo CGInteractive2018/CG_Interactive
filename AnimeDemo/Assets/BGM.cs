@@ -20,7 +20,6 @@ public class BGM : MonoBehaviour
             //audioSource = gameObject.GetComponent<AudioSource>();
             //audioSource.clip = audioClip1;
             audioSource.Play();
-            Debug.Log("hoge");
             gameOver = true;
         }
     }
