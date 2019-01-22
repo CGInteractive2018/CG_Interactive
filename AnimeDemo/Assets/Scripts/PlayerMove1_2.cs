@@ -99,19 +99,19 @@ public class PlayerMove1_2 : MonoBehaviour
         //後方
         if (varX.Equals(0) == true && varZ < 0)
         {
-            animator.SetBool("Buck", true);
+            animator.SetBool("Back", true);
         }
         else if (varZ < 0 && Mathf.Atan(varZ / varX) < Mathf.PI / 2 && Mathf.Atan(varZ / varX) >= Mathf.PI / 3)
         {
-            animator.SetBool("Buck", true);
+            animator.SetBool("Back", true);
         }
         else if (varZ < 0 && Mathf.Atan(varZ / varX) > -Mathf.PI / 2 && Mathf.Atan(varZ / varX) <= -Mathf.PI / 3)
         {
-            animator.SetBool("Buck", true);
+            animator.SetBool("Back", true);
         }
         else
         {
-            animator.SetBool("Buck", false);
+            animator.SetBool("Back", false);
         }
 
         //右
