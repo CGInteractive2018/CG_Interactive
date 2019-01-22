@@ -28,7 +28,7 @@ public class SpGenerator : MonoBehaviour {
     void Start () {
         target = GameObject.FindWithTag("Player");
         camera = GameObject.FindWithTag("MainCamera");
-        special_remain = 10;
+        special_remain = 0;
         remain = 10;
     }
 
