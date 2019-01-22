@@ -11,9 +11,15 @@ public class Sp1Script : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        Vector3 tmp = this.transform.position;
+        if(tmp.y < -5)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 
     private void OnCollisionEnter(Collision collision)
     {
