@@ -7,7 +7,7 @@ public class WarpPoint6 : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player"||col.tag=="Player2")
         {
             col.gameObject.transform.position = new Vector3(23, 1, 16);
         }
